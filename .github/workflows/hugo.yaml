@@ -56,12 +56,10 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          cd exampleSite && \
-          hugo \
-            --gc \
-            --minify \
-            --themesDir ../.
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+          cd exampleSite && hugo \
+                            --gc \
+                            --themesDir ../..
+                            --baseURL "${{ steps.pages.outputs.base_url }}/"          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
